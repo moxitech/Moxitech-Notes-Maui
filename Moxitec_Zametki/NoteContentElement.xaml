@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 x:Class="Moxitec_Zametki.NoteContentElement">
+    <Border Margin="5" StrokeShape="RoundRectangle 40,0,0,40">
+	<HorizontalStackLayout
+		Spacing="10"
+		Padding="20">
+		<CheckBox CheckedChanged="CheckBox_CheckedChanged" Scale="1.5" x:Name="checkBox"></CheckBox>
+			<VerticalStackLayout Padding="5" Spacing="5">
+				<Label 
+				x:Name="Text"
+				LineBreakMode="WordWrap"
+                VerticalOptions="Center" 
+				HorizontalOptions="Center"
+                MaxLines="5"
+                />
+
+				<Label x:Name="DateTimeLabel" VerticalOptions="Start"/>
+
+			</VerticalStackLayout>
+		</HorizontalStackLayout>
+	</Border>
+</ContentView>

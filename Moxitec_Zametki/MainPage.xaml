@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 x:Class="Moxitec_Zametki.MainPage">
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"></RowDefinition>
+			<RowDefinition Height="2"></RowDefinition>
+		</Grid.RowDefinitions>
+		<!--<Панель для заметок>-->
+		<ScrollView VerticalScrollBarVisibility="Default"
+			VerticalOptions="Fill"
+			HorizontalOptions="Fill">
+			<VerticalStackLayout
+				Spacing="20"
+				Padding="10,0"
+				VerticalOptions="Start"
+				HorizontalOptions="FillAndExpand"
+				x:Name="VerticalPanel"/>
+		</ScrollView>
+
+        <!--<Кнопка для создания заметки>-->
+        <ImageButton
+			x:Name="CounterBtn"
+            Source="button_add.png"
+            Aspect="AspectFill"
+            Clicked="CreateNote"
+			VerticalOptions="End"
+			HorizontalOptions="End"
+			WidthRequest="50"
+			HeightRequest="50"
+			Margin="0,0,30,30"
+            BackgroundColor="#11C411"
+			CornerRadius="20"/>
+        
+        
+        <!--<Солянка кнопок действий над заметками>-->
+        <VerticalStackLayout 
+			VerticalOptions="Start"
+			HorizontalOptions="End"
+            Margin="20,20,20,0"
+            Spacing="10">
+            <Button	Text="Expand"/>
+            
+            <ImageButton
+			x:Name="DeleteBtn"
+			Source="button_delete.png"
+			Aspect="AspectFill"	
+            Clicked="DeleteCheckedNote"
+            WidthRequest="50"
+			HeightRequest="50"
+            BackgroundColor="#11C411"
+			CornerRadius="20"/>
+			
+            <ImageButton
+            x:Name="SettingBtn"
+            Source="button_setting.png"
+            Aspect="AspectFill"
+            Clicked="OpenSettingPage"
+			WidthRequest="50"
+			HeightRequest="50"
+            BackgroundColor="#11C411"
+			CornerRadius="20"/>
+			
+            <ImageButton
+            x:Name="TimerBtn"
+            Source="button_timers.png"
+            Aspect="AspectFill"
+            Clicked="TimerSet"
+			WidthRequest="50"
+			HeightRequest="50"
+            BackgroundColor="#11C411"
+			CornerRadius="20"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

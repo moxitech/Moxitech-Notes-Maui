@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Moxitec_Zametki.Setting"
+             Title="Setting">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1" />
+            <RowDefinition Height="5*" />
+        </Grid.RowDefinitions>
+        <!--<Кнопка "вернуться обратно">-->
+        <ImageButton
+                Source="button_up_page.png"
+                Aspect="AspectFill"
+                BackgroundColor="#11C411"
+                Clicked="BackButtonClicked"
+                WidthRequest="60"
+                HeightRequest="40"
+                VerticalOptions="Start"
+                HorizontalOptions="Start"/>
+        <Label 
+            Text="Настройки"
+            Grid.Column="1"
+            Grid.Row="0"/>
+        
+        <VerticalStackLayout
+            Grid.Column="1"
+            Grid.Row="1"
+            BackgroundColor="Aqua">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <Label x:Name="AnimationLabel" Grid.Column="0" Grid.Row="0" FontSize="16" VerticalOptions="Center" HorizontalOptions="Center"> Анимации</Label>
+                <Switch x:Name="AnimationIfUse" Grid.Column="1" Grid.Row="0"></Switch>
+
+
+                <Label x:Name="ThemeLabel" Grid.Column="0" Grid.Row="1" FontSize="16" VerticalOptions="Center" HorizontalOptions="Center">Тема</Label>
+                <Switch x:Name="ThemeIfUse" Grid.Column="1" Grid.Row="1"></Switch>
+            </Grid>
+            <Button Text="Очистить все заметки" Clicked="ClearAllButtonClicked" VerticalOptions="End" HorizontalOptions="Center"></Button>
+        </VerticalStackLayout>
+
+
+    </Grid>
+</ContentPage>
