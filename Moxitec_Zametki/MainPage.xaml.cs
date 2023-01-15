@@ -115,22 +115,24 @@ public partial class MainPage : ContentPage
         //TODO: Timer for notify
     }
 
-    private void AnimateOfContextButtonOpen(object sender, EventArgs e)
+    private async void AnimateOfContextButtonOpen(object sender, EventArgs e)
     {// TODO : var flag (true: + else: -)
         //Анимация открытия заметок
-        var translate = ExpandButton.TranslationY;
+        var translate = ExpandButton.TranslationY;        
         if (!isOpenedToolBar)
         {
-            DeleteBtn.TranslateTo(DeleteBtn.TranslationX, DeleteBtn.TranslationY - 60, 500, Easing.BounceOut);
-            SettingBtn.TranslateTo(SettingBtn.TranslationX, SettingBtn.TranslationY - 120, 500, Easing.BounceOut);
-            TimerBtn.TranslateTo(TimerBtn.TranslationX, TimerBtn.TranslationY - 180, 500, Easing.BounceOut);
+            var work_1 = DeleteBtn.TranslateTo(DeleteBtn.TranslationX, DeleteBtn.TranslationY - 60, 500, Easing.BounceOut);
+            var work_2 = SettingBtn.TranslateTo(SettingBtn.TranslationX, SettingBtn.TranslationY - 120, 500, Easing.BounceOut);
+            var work_3 = TimerBtn.TranslateTo(TimerBtn.TranslationX, TimerBtn.TranslationY - 180, 500, Easing.BounceOut);
+            await Task.WhenAll(work_1, work_2, work_3);
             isOpenedToolBar= true;
         }
         else
         {
-            DeleteBtn.TranslateTo(DeleteBtn.TranslationX, DeleteBtn.TranslationY + 60, 500, Easing.BounceOut);
-            SettingBtn.TranslateTo(SettingBtn.TranslationX, SettingBtn.TranslationY + 120, 500, Easing.BounceOut);
-            TimerBtn.TranslateTo(TimerBtn.TranslationX, TimerBtn.TranslationY + 180, 500, Easing.BounceOut);
+            var work_1 = DeleteBtn.TranslateTo(DeleteBtn.TranslationX, DeleteBtn.TranslationY + 60, 500, Easing.BounceOut);
+            var work_2 = SettingBtn.TranslateTo(SettingBtn.TranslationX, SettingBtn.TranslationY + 120, 500, Easing.BounceOut);
+            var work_3 = TimerBtn.TranslateTo(TimerBtn.TranslationX, TimerBtn.TranslationY + 180, 500, Easing.BounceOut);
+            await Task.WhenAll(work_1, work_2, work_3); 
             isOpenedToolBar = false;
         }
         //SettingBtn.X;
