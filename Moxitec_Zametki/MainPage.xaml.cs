@@ -9,7 +9,7 @@ public partial class MainPage : ContentPage
     #region Variable
     ObservableCollection<NoteContentElement> notes;
     string FILEPATH = (FileSystem.AppDataDirectory + "/Notes.json");
-    bool isOpenedToolBar = false;
+    bool isOpenedToolBar = true;
     #endregion
     public MainPage()
 	{
@@ -33,16 +33,6 @@ public partial class MainPage : ContentPage
         }
         #endregion
         #region preAnimation
-        DeleteBtn.TranslateTo(DeleteBtn.TranslationX, DeleteBtn.TranslationY - 60, 500, Easing.BounceOut);
-        SettingBtn.TranslateTo(SettingBtn.TranslationX, SettingBtn.TranslationY - 120, 500, Easing.BounceOut);
-        TimerBtn.TranslateTo(TimerBtn.TranslationX, TimerBtn.TranslationY - 180, 500, Easing.BounceOut);
-        isOpenedToolBar = true;
-        DeleteBtn.IsEnabled = false;
-        SettingBtn.IsEnabled = false;
-        TimerBtn.IsEnabled = false;
-        TimerBtn.Opacity= 0;
-        DeleteBtn.Opacity = 0;
-        SettingBtn.Opacity = 0;
         #endregion
     }
 
@@ -123,7 +113,7 @@ public partial class MainPage : ContentPage
     #region НУЖДАЕТЬСЯ В ФИКСЕЕЕЕЕ
     private void AnimateOfContextButtonOpen(object sender, EventArgs e)
     {// TODO : var flag (true: + else: -)
-        //Анимация открытия заметок
+        /*Анимация открытия заметок
         var translate = ExpandButton.TranslationY;        
         if (!isOpenedToolBar)
         {
@@ -152,6 +142,24 @@ public partial class MainPage : ContentPage
         //SettingBtn.X;
         //DeleteBtn.X;
         //TimerBtn;
+    }*/
+        if (isOpenedToolBar)
+        {
+            SettingBtn.IsVisible = true;
+            DeleteBtn.IsVisible = true;
+            TimerBtn.IsVisible = true;
+            isOpenedToolBar= false;
+        }
+        else
+        {
+            SettingBtn.IsVisible = false;
+            DeleteBtn.IsVisible = false;
+            TimerBtn.IsVisible = false;
+            isOpenedToolBar = true;
+        }
+
+
+
     }
     #endregion
 }

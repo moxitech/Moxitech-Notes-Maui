@@ -59,7 +59,8 @@
             WidthRequest="50"
 			HeightRequest="50"
             BackgroundColor="#11C411"
-			CornerRadius="20"/>
+			CornerRadius="20"
+                IsVisible="false"/>
             <ImageButton
             x:Name="SettingBtn"
             Source="button_setting.png"
@@ -68,7 +69,8 @@
 			WidthRequest="50"
 			HeightRequest="50"
             BackgroundColor="#11C411"
-			CornerRadius="20"/>
+			CornerRadius="20"
+                IsVisible="false"/>
             <ImageButton
             x:Name="TimerBtn"
             Source="button_timers.png"
@@ -77,7 +79,8 @@
 			WidthRequest="50"
 			HeightRequest="50"
             BackgroundColor="#11C411"
-			CornerRadius="20"/>
+			CornerRadius="20"
+                IsVisible="false"/>
             
 
         </VerticalStackLayout>
