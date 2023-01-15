@@ -44,27 +44,23 @@
             <ImageButton 
             Source="button_expander.png" 
 			Aspect="AspectFill"
-			ZIndex="3"	
             Clicked="AnimateOfContextButtonOpen" 
             x:Name="ExpandButton"
             WidthRequest="50"
 			HeightRequest="50"
             BackgroundColor="#11C411"
-			CornerRadius="20"/>
-            
-            <ImageButton
-                
+			CornerRadius="20"
+			/>
+            <ImageButton   
 			x:Name="DeleteBtn"
-			Source="button_delete.png"
+            Source="button_delete.png"
 			Aspect="AspectFill"	
             Clicked="DeleteCheckedNote"
             WidthRequest="50"
 			HeightRequest="50"
             BackgroundColor="#11C411"
 			CornerRadius="20"/>
-			
             <ImageButton
-                
             x:Name="SettingBtn"
             Source="button_setting.png"
             Aspect="AspectFill"
@@ -73,9 +69,7 @@
 			HeightRequest="50"
             BackgroundColor="#11C411"
 			CornerRadius="20"/>
-			
             <ImageButton
-                
             x:Name="TimerBtn"
             Source="button_timers.png"
             Aspect="AspectFill"
@@ -84,6 +78,8 @@
 			HeightRequest="50"
             BackgroundColor="#11C411"
 			CornerRadius="20"/>
+            
+
         </VerticalStackLayout>
     </Grid>
 </ContentPage>

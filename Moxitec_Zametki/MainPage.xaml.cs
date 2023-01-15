@@ -37,6 +37,12 @@ public partial class MainPage : ContentPage
         SettingBtn.TranslateTo(SettingBtn.TranslationX, SettingBtn.TranslationY - 120, 500, Easing.BounceOut);
         TimerBtn.TranslateTo(TimerBtn.TranslationX, TimerBtn.TranslationY - 180, 500, Easing.BounceOut);
         isOpenedToolBar = true;
+        DeleteBtn.IsEnabled = false;
+        SettingBtn.IsEnabled = false;
+        TimerBtn.IsEnabled = false;
+        TimerBtn.Opacity= 0;
+        DeleteBtn.Opacity = 0;
+        SettingBtn.Opacity = 0;
         #endregion
     }
 
@@ -114,29 +120,38 @@ public partial class MainPage : ContentPage
     {
         //TODO: Timer for notify
     }
-
-    private async void AnimateOfContextButtonOpen(object sender, EventArgs e)
+    #region НУЖДАЕТЬСЯ В ФИКСЕЕЕЕЕ
+    private void AnimateOfContextButtonOpen(object sender, EventArgs e)
     {// TODO : var flag (true: + else: -)
         //Анимация открытия заметок
         var translate = ExpandButton.TranslationY;        
         if (!isOpenedToolBar)
         {
-            var work_1 = DeleteBtn.TranslateTo(DeleteBtn.TranslationX, DeleteBtn.TranslationY - 60, 500, Easing.BounceOut);
-            var work_2 = SettingBtn.TranslateTo(SettingBtn.TranslationX, SettingBtn.TranslationY - 120, 500, Easing.BounceOut);
-            var work_3 = TimerBtn.TranslateTo(TimerBtn.TranslationX, TimerBtn.TranslationY - 180, 500, Easing.BounceOut);
-            await Task.WhenAll(work_1, work_2, work_3);
-            isOpenedToolBar= true;
+            SettingBtn.IsEnabled = false;
+            DeleteBtn.IsEnabled = false;
+            TimerBtn.IsEnabled = false;
+            DeleteBtn.TranslateTo(DeleteBtn.TranslationX, DeleteBtn.TranslationY - 60, 500, Easing.BounceOut);
+            SettingBtn.TranslateTo(SettingBtn.TranslationX, SettingBtn.TranslationY - 120, 500, Easing.BounceOut);
+            TimerBtn.TranslateTo(TimerBtn.TranslationX, TimerBtn.TranslationY - 180, 500, Easing.BounceOut);
+            isOpenedToolBar = true;
         }
         else
         {
-            var work_1 = DeleteBtn.TranslateTo(DeleteBtn.TranslationX, DeleteBtn.TranslationY + 60, 500, Easing.BounceOut);
-            var work_2 = SettingBtn.TranslateTo(SettingBtn.TranslationX, SettingBtn.TranslationY + 120, 500, Easing.BounceOut);
-            var work_3 = TimerBtn.TranslateTo(TimerBtn.TranslationX, TimerBtn.TranslationY + 180, 500, Easing.BounceOut);
-            await Task.WhenAll(work_1, work_2, work_3); 
+            TimerBtn.Opacity = 100;
+            DeleteBtn.Opacity = 100;
+            SettingBtn.Opacity = 100;
+            DeleteBtn.IsEnabled = true;
+            SettingBtn.IsEnabled = true;
+            TimerBtn.IsEnabled = true;
+            DeleteBtn.TranslateTo(DeleteBtn.TranslationX, DeleteBtn.TranslationY + 60, 500, Easing.BounceOut);
+            SettingBtn.TranslateTo(SettingBtn.TranslationX, SettingBtn.TranslationY + 120, 500, Easing.BounceOut);
+            TimerBtn.TranslateTo(TimerBtn.TranslationX, TimerBtn.TranslationY + 180, 500, Easing.BounceOut);
+            
             isOpenedToolBar = false;
         }
         //SettingBtn.X;
         //DeleteBtn.X;
         //TimerBtn;
     }
+    #endregion
 }
