@@ -30,8 +30,7 @@
         
         <VerticalStackLayout
             Grid.Column="1"
-            Grid.Row="1"
-            BackgroundColor="Aqua">
+            Grid.Row="1">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -51,6 +50,20 @@
             </Grid>
             <Button Text="Очистить все заметки" Clicked="ClearAllButtonClicked" VerticalOptions="End" HorizontalOptions="Center"></Button>
         </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Column="1" Grid.Row="1" HorizontalOptions="Center" VerticalOptions="End">
+            <Label >
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span>Program developed by</Span>
+                        <Span TextColor="LightGreen">Moxitech</Span>
+                        <Span>*</Span>
+                        <Span FontAttributes="Italic">[https://vk.com/moxitech]</Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </VerticalStackLayout>
+
 
 
     </Grid>

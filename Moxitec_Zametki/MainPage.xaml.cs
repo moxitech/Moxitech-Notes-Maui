@@ -6,24 +6,39 @@ namespace Moxitec_Zametki;
 
 public partial class MainPage : ContentPage
 {
-	ObservableCollection<NoteContentElement> notes;
+    #region Variable
+    ObservableCollection<NoteContentElement> notes;
     string FILEPATH = (FileSystem.AppDataDirectory + "/Notes.json");
-	public MainPage()
+    bool isOpenedToolBar = false;
+    #endregion
+    public MainPage()
 	{
 		InitializeComponent();
-        notes = new ObservableCollection<NoteContentElement>(); //RECREATE TO LOAD NOTE
+        #region Collection with note view element [Setup]
+        notes = new ObservableCollection<NoteContentElement>();
         notes.CollectionChanged += Notes_CollectionChangedAsync;
+        #endregion
+        #region Check file with note exists
         if (File.Exists(FILEPATH)) { }
         else { File.Create(FILEPATH); }
-        var t = LoadNotes();
-        if (t != null)
+        #endregion
+        #region load and set note 
+        var loadNotes = LoadNotes();
+        if (loadNotes != null)
         {
-            foreach (var item in t)
+            foreach (var item in loadNotes)
             {
                 notes.Add(new NoteContentElement(item));
-            }
+            } 
         }
-	}
+        #endregion
+        #region preAnimation
+        DeleteBtn.TranslateTo(DeleteBtn.TranslationX, DeleteBtn.TranslationY - 60, 500, Easing.BounceOut);
+        SettingBtn.TranslateTo(SettingBtn.TranslationX, SettingBtn.TranslationY - 120, 500, Easing.BounceOut);
+        TimerBtn.TranslateTo(TimerBtn.TranslationX, TimerBtn.TranslationY - 180, 500, Easing.BounceOut);
+        isOpenedToolBar = true;
+        #endregion
+    }
 
     private void Notes_CollectionChangedAsync(object sender, NotifyCollectionChangedEventArgs e)
     {
@@ -49,9 +64,10 @@ public partial class MainPage : ContentPage
     private async void CreateNote(object sender, EventArgs e)
 	{
         var text = await DisplayPromptAsync("Текст заметки", "Введите текст: ", "Ок", "Отмена");
-        if (text == null || text == " ") { }
+        if (text == null || text == " ") {  }
         else
         {
+            text = text.TrimStart();
             NoteContentElement local_note = new NoteContentElement(text);
             notes.Add(local_note);
         }
@@ -60,9 +76,7 @@ public partial class MainPage : ContentPage
     private Note[] LoadNotes()
     {
         Note[] data;
-        string unparsedNotes = File.ReadAllText(FILEPATH);
-
-
+        string unparsedNotes = File.ReadAllText(FILEPATH); //EXCEPTION L ACCESS
         if (unparsedNotes.Length > 0)
         {
            data = JsonConvert.DeserializeObject<Note[]>(unparsedNotes);
@@ -98,6 +112,29 @@ public partial class MainPage : ContentPage
 
     private void TimerSet(object sender, EventArgs e)
     {
+        //TODO: Timer for notify
+    }
 
+    private void AnimateOfContextButtonOpen(object sender, EventArgs e)
+    {// TODO : var flag (true: + else: -)
+        //Анимация открытия заметок
+        var translate = ExpandButton.TranslationY;
+        if (!isOpenedToolBar)
+        {
+            DeleteBtn.TranslateTo(DeleteBtn.TranslationX, DeleteBtn.TranslationY - 60, 500, Easing.BounceOut);
+            SettingBtn.TranslateTo(SettingBtn.TranslationX, SettingBtn.TranslationY - 120, 500, Easing.BounceOut);
+            TimerBtn.TranslateTo(TimerBtn.TranslationX, TimerBtn.TranslationY - 180, 500, Easing.BounceOut);
+            isOpenedToolBar= true;
+        }
+        else
+        {
+            DeleteBtn.TranslateTo(DeleteBtn.TranslationX, DeleteBtn.TranslationY + 60, 500, Easing.BounceOut);
+            SettingBtn.TranslateTo(SettingBtn.TranslationX, SettingBtn.TranslationY + 120, 500, Easing.BounceOut);
+            TimerBtn.TranslateTo(TimerBtn.TranslationX, TimerBtn.TranslationY + 180, 500, Easing.BounceOut);
+            isOpenedToolBar = false;
+        }
+        //SettingBtn.X;
+        //DeleteBtn.X;
+        //TimerBtn;
     }
 }

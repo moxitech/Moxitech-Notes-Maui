@@ -8,17 +8,14 @@
 		Padding="20">
 		<CheckBox CheckedChanged="CheckBox_CheckedChanged" Scale="1.5" x:Name="checkBox"></CheckBox>
 			<VerticalStackLayout Padding="5" Spacing="5">
-				<Label 
+                <Label 
 				x:Name="Text"
 				LineBreakMode="WordWrap"
                 VerticalOptions="Center" 
 				HorizontalOptions="Center"
-                MaxLines="5"
-                />
-
-				<Label x:Name="DateTimeLabel" VerticalOptions="Start"/>
-
-			</VerticalStackLayout>
+                MaxLines="5"/>
+                <Label x:Name="DateTimeLabel" VerticalOptions="Start"/>
+            </VerticalStackLayout>
 		</HorizontalStackLayout>
 	</Border>
 </ContentView>

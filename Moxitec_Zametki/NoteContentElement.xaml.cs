@@ -1,10 +1,12 @@
 using Microsoft.Maui.Devices;
+using Microsoft.Maui.Graphics.Text;
 
 namespace Moxitec_Zametki;
 
 public partial class NoteContentElement : ContentView
 {
 	Note localNote;
+	string color;
 	public NoteContentElement(string TextOfNote)
 	{
 		InitializeComponent();
@@ -40,9 +42,10 @@ public partial class NoteContentElement : ContentView
 		if (e.Value)
 		{
 			localNote.isOK = true;
+			color = Text.TextColor.ToArgbHex();
 			Text.TextDecorations = TextDecorations.Strikethrough;
 			Text.TextColor = Color.FromArgb("DFD8F7");
 		}
-		else { localNote.isOK = false; Text.TextDecorations = TextDecorations.None; Text.TextColor = Color.Parse("White"); }
+		else { localNote.isOK = false; Text.TextDecorations = TextDecorations.None; Text.TextColor = Color.Parse(color); }
     }
 }

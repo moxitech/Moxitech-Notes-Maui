@@ -41,9 +41,19 @@
 			HorizontalOptions="End"
             Margin="20,20,20,0"
             Spacing="10">
-            <Button	Text="Expand"/>
+            <ImageButton 
+            Source="button_expander.png" 
+			Aspect="AspectFill"
+			ZIndex="3"	
+            Clicked="AnimateOfContextButtonOpen" 
+            x:Name="ExpandButton"
+            WidthRequest="50"
+			HeightRequest="50"
+            BackgroundColor="#11C411"
+			CornerRadius="20"/>
             
             <ImageButton
+                
 			x:Name="DeleteBtn"
 			Source="button_delete.png"
 			Aspect="AspectFill"	
@@ -54,6 +64,7 @@
 			CornerRadius="20"/>
 			
             <ImageButton
+                
             x:Name="SettingBtn"
             Source="button_setting.png"
             Aspect="AspectFill"
@@ -64,6 +75,7 @@
 			CornerRadius="20"/>
 			
             <ImageButton
+                
             x:Name="TimerBtn"
             Source="button_timers.png"
             Aspect="AspectFill"

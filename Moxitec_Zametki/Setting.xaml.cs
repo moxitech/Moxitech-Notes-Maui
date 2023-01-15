@@ -21,6 +21,8 @@ public partial class Setting : ContentPage
         {
             string FILEPATH = (FileSystem.AppDataDirectory + "/Notes.json");
             File.Delete(FILEPATH);
+            File.Create(FILEPATH);
         }
+
     }
 }
