@@ -35,7 +35,8 @@ public partial class NoteContentElement : ContentView
 
 	public Note getNote() { 
 		if (checkBox.IsChecked) { localNote.isOK =true; }
-        return localNote; }
+        return localNote; 
+	}
 
     private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
     {

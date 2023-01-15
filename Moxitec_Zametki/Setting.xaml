@@ -55,10 +55,10 @@
             <Label >
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span>Program developed by</Span>
-                        <Span TextColor="LightGreen">Moxitech</Span>
+                        <Span>Program developed by </Span>
+                        <Span TextColor="LightGreen"> Moxitech</Span>
                         <Span>*</Span>
-                        <Span FontAttributes="Italic">[https://vk.com/moxitech]</Span>
+                        <Span FontAttributes="Italic"> [https://vk.com/moxitech]</Span>
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
